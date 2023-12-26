@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api request</title>
+    <style>
+        .card {
+            height: 200px;
+            width: 200px;
+            border: 2px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="" alt="" class="card">
+    <p></p>
+    <!-- open: Initializes the request with the IMP : HTTP method (GET in this case), the URL, and whether the request should be asynchronous (true in this case).
+onreadystatechange: Specifies a callback function to be executed whenever the readyState property changes. The readyState indicates the state of the request (0: uninitialized, 1: open, 2: sent, 3: receiving, 4: completed).
+send: Sends the request to the server. -->
+
+    <script>
+        let imge = document.querySelector('.card');
+        // let imgeUrl = ;
+        imge.addEventListener('click', function () {
+            const xhr = new XMLHttpRequest();
+            //xhr.open(method,url,asynchronous)
+            const requestUrl = 'https:api.github.com/users/KIRAN-BUSARI';
+            xhr.open("GET", requestUrl, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    console.log("here", xhr.readyState);
+                    const data = JSON.parse(this.responseText);//JSON.parse( which convert string into JSON(objects)), json.stringify(vica versa)
+                    console.log(data);
+                    document.querySelector('p').innerHTML = `${data.login}`;
+                }
+            }
+            xhr.send( );//open() called 
+
+        })
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

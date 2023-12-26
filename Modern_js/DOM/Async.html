@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+
+<body>
+    <h1>Manoj learing about Async</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        //here i m stoping the event before its timeout
+        // const ch = function () {
+        //     document.querySelector('h1').style.color = 'orange';
+        //     console.log("after 4 second");
+        // }
+        // const cm = setTimeout(ch, 4000);
+        // const bt = document.querySelector('#stop');
+        // bt.addEventListener('click', function () {
+        //     clearTimeout(cm);
+        //     console.log("Stoped");
+        // })
+
+        // setInterval()
+        // const sta = () => {
+        //     console.log("manoj")
+        // };
+        // let st;
+        // document.querySelector("#start").addEventListener('click', function () {
+
+        //  st = setInterval(sta, 2000);
+
+        // })
+        // document.querySelector("#stop").addEventListener('click', function () {
+
+        //     clearTimeout(st);
+
+        // })
+
+
+        //changing background
+        //color = '#232323'
+        const rc = function () {
+            let color = '#';
+            const hex = '0123456789ABCDEF';
+            for (let i = 0; i < 6; i++) {
+                color += hex[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+
+        const startchangecolor = function () {
+            document.body.style.backgroundColor = rc();
+            document.body.style.color = rc();
+
+        }
+        let cm;
+        document.querySelector('#start').addEventListener('click', function () {
+            if(!cm){
+                cm = setInterval(startchangecolor, 2000);
+            }
+        });
+
+        const stopchangecolor = function () {
+            document.body.style.backgroundColor = 'white';
+            document.body.style.color = 'black';
+        };
+        document.querySelector('#stop').addEventListener('click', function () {
+            clearInterval(cm);
+            cm = null;
+            stopchangecolor();
+
+        });
+
+    </script>
+</body>
+
+</html>
