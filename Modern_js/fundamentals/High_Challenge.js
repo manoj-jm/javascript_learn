@@ -36,31 +36,31 @@ const people = [
   },
 ];
 
-const youngPeople = people.filter(a => {
-    if (a.age <= 25){
-        return a.age;
-    }
-}).
-filter(function (i){
+let youngPeople = people
+  .filter((item) => item.age < 25)
+  .map((young) => {
     return {
-        name : `${i.fname} ${i.lname}`,
-        email: i.email,
-    }
-});
+      name: young.fname + " " + young.lname,
+      email: young.email,
+    };
+  });
+
 console.log(youngPeople);
 
-//challenge2 : add all positive number in array
-const arrnum = [12,-83,50,-4,23,-834,323];
+let numbers = [2, -23, 21, -783, 238];
+// add all negative number;
+let negativeSum = numbers
+  .filter((item) => item < 0)
+  .reduce((prev, curr) => {
+    return prev + curr;
+  }, 0);
 
-const positive_num= arrnum.filter(n=>n>0).reduce((ac,cu)=>{
-    return ac + cu;
-},0);
+console.log(Math.abs(negativeSum)); //806
 
-console.log(positive_num);
+//challenge 3
+const words = ["manoj", "roja", "vishwa"];
+let captilazedWords = words.map(
+  (person) => person[0].toUpperCase() + person.slice(1, person.length)
+);
 
-//challenge3:
-//map return the a new modified array 
-//filter return the new item of the array 
-const words = ['coder','programmer','developer'];
-const cap_words = words.map(word => word[0].toUpperCase() + word.slice(1));
-console.log(cap_words);
+console.log(captilazedWords);

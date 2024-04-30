@@ -60,3 +60,8 @@ console.log(Math.random() * 12);
 
 //global scope
 //overriding the global scope is varible shadowing
+function sum(...numb){
+    console.log(numb,typeof numb);
+}
+
+sum(1,2,2,34,4,32,1,23,3,2,1,5,3,3,2);

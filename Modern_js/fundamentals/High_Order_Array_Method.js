@@ -96,3 +96,22 @@ let sum_cart = cart.reduce((acc,cur)=>{
     return acc + cur.price;
 },0);
 console.log(sum_cart);
+
+
+//another type of shop price
+let shop = [
+  { item: 1, price: 100 },
+  { item: 2, price: 160 },
+  { item: 3, price: 700 },
+  { item: 4, price: 200 },
+  { item: 5, price: 300 },
+  { item: 6, price: 170 },
+];
+let red = shop
+  .map((item) => item.price)
+  .reduce((prev, curr) => {
+    prev = prev + curr;
+    return prev;
+  }, 0);
+
+console.log(red);
